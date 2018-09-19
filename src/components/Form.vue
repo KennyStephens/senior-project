@@ -1,20 +1,25 @@
 <template>
   <div id="form">
+    <h1>Add Usability Tasks Here</h1>
     <form>
     <div class="form-group">
-      <label for="exampleInputEmail1" class="text-light">Email address</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      <label class="text-light">Task #1</label>
+      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
     </div>
-    <div class="form-group">
-      <label for="exampleInputPassword1" class="text-light">Password</label>
-      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+      <div class="form-group">
+      <label class="text-light">Task #2</label>
+      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
     </div>
-    <div class="form-group form-check">
-      <input type="checkbox" class="form-check-input" id="exampleCheck1">
-      <label class="form-check-label text-light" for="exampleCheck1">Check me out</label>
+      <div class="form-group">
+      <label class="text-light">Task #3</label>
+      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+
+    <div id="additional-items"></div>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+
+    <button id="add-button" @click="addTask"><i class="fas fa-plus-circle"></i></button>
+    
+    <button type="submit" class="btn btn-primary submit-button">Submit Tasks</button>
     </form>
   </div>
 </template>
@@ -23,17 +28,72 @@
 export default {
   data: function() {
     return {
-      
+      taskCounter: 3
     }
   },
   methods: {
-   
+    addTask(e) {
+
+      this.taskCounter++
+      // Grab form
+      const addButton = document.querySelector('#additional-items');
+
+      // Create new form-group div
+      const formDiv = document.createElement('div');
+      formDiv.classList.add('form-group');
+      formDiv.style.marginTop = "1rem";
+      
+      // Create new label
+      const formLabel = document.createElement('label');
+      formLabel.classList.add('text-light');
+      formLabel.innerText = `Task #${this.taskCounter}`;
+      formDiv.appendChild(formLabel);
+
+      // Create input
+      const formInput = document.createElement('input');
+      formInput.classList.add('form-control');
+      formDiv.appendChild(formInput);
+
+
+
+
+
+
+      addButton.appendChild(formDiv);
+
+      e.preventDefault();
+    }
   }
   
 }
 </script>
 
 <style lang="scss">
+  h1 {
+    color: aqua;
+  }
 
+  #form {
+    width: 75%;
+    text-align: left;
+  }
+
+  #add-button {
+    background: transparent;
+    border: none;
+    color: green;
+    font-size: 1.7rem;
+    display: block;
+    float: right;
+   
+    &:hover {
+      opacity: .8;
+    }
+  }
+
+  .submit-button {
+    display: block;
+    margin-top: 3em;
+  }
 </style>
 

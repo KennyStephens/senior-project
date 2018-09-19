@@ -2,19 +2,23 @@
   <div id="form">
     <h1>Add Usability Tasks Here</h1>
     <form>
-    <div class="form-group">
-      <label class="text-light">Task #1</label>
-      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-    </div>
+      <div class="form-group siteURL">
+        <label class="text-light">Site URL</label>
+        <input type="text" class="form-control siteURL" id="exampleInputEmail1" aria-describedby="emailHelp">
+      </div>
       <div class="form-group">
-      <label class="text-light">Task #2</label>
-      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-    </div>
-      <div class="form-group">
-      <label class="text-light">Task #3</label>
-      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <label class="text-light">Task #1</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      </div>
+        <div class="form-group">
+        <label class="text-light">Task #2</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      </div>
+        <div class="form-group">
+        <label class="text-light">Task #3</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
 
-    <div id="additional-items"></div>
+      <div id="additional-items"></div>
     </div>
 
     <button id="add-button" @click="addTask"><i class="fas fa-plus-circle"></i></button>
@@ -74,8 +78,11 @@ export default {
   }
 
   #form {
-    width: 75%;
+    width: 50%;
     text-align: left;
+    background: #444;
+    padding: 30px 40px;
+    border-radius: 25px;
   }
 
   #add-button {
@@ -85,15 +92,33 @@ export default {
     font-size: 1.7rem;
     display: block;
     float: right;
+    opacity: .8;
    
     &:hover {
-      opacity: .8;
+      opacity: 1;
     }
   }
 
   .submit-button {
     display: block;
     margin-top: 3em;
+  }
+
+  .siteURL {
+    text-align: center;
+
+    input {
+    border-radius: 99px;
+    border: 2px solid red;
+    width: 50%;
+    margin: 0 auto;
+    }
+  }
+
+  input {
+    border-radius: 99px;
+    border: 2px solid red;
+    width: 50%;
   }
 </style>
 

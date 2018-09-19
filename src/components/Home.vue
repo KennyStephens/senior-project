@@ -33,7 +33,7 @@ export default {
   },
   data: function() {
     return {
-      title: 'Welcome to Usable',
+      title: 'Welcome to Usabl',
       display: {
         display: true,
         formDisplay: false

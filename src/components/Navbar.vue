@@ -11,7 +11,7 @@
 export default {
   data: function() {
     return {
-      navItems: ['Home', 'About Us', 'Sign In']
+      navItems: ['Home', 'About Us', 'Sign In'],
     }
   }
 }
@@ -19,7 +19,8 @@ export default {
 
 <style lang="scss" scoped>
   ul {
-    float: right;
+    position: absolute;
+    right: 0;
     padding: 20px 5px 0 0;
     margin-bottom: 0;
     

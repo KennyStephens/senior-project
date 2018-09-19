@@ -11,7 +11,7 @@
 export default {
   data: function() {
     return {
-      navItems: ['Home', 'About Us', 'Sign In'],
+      navItems: ['Home', 'About Us', 'Sign In']
     }
   }
 }

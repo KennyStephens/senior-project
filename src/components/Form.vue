@@ -13,9 +13,12 @@
         <i v-if="inputFilled" class="fas fa-check-circle input-check"></i>
         </transition>
       </div>
-        <div class="form-group">
+        <div class="form-group" id="taskInput">
         <label class="text-light">Task #2</label>
-        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" @keyup="inputCheck">
+        <transition name="slide-fade">
+        <i v-if="inputFilled" class="fas fa-check-circle input-check"></i>
+        </transition>
       </div>
         <div class="form-group">
         <label class="text-light">Task #3</label>
@@ -44,8 +47,9 @@ export default {
     addTask(e) {
 
       this.taskCounter++
-      // Grab form
-      const addButton = document.querySelector('#additional-items');
+
+      // Grab additional items div
+      const additionalItems = document.querySelector('#additional-items');
 
       // Create new form-group div
       const formDiv = document.createElement('div');
@@ -63,7 +67,7 @@ export default {
       formInput.classList.add('form-control');
       formDiv.appendChild(formInput);
 
-      addButton.appendChild(formDiv);
+      additionalItems.appendChild(formDiv);
 
       e.preventDefault();
     },
@@ -97,7 +101,7 @@ export default {
     background: #444;
     padding: 30px 40px;
     border-radius: 25px;
-    max-height: 75%;
+    max-height: 80%;
     overflow: auto;
   }
 
@@ -131,6 +135,7 @@ export default {
     input {
     width: 50%;
     margin: 0 auto;
+    transition: all .5s;
 
     &:focus {
       border-radius: 99px;
@@ -169,7 +174,7 @@ export default {
   transition: all .3s ease;
 }
 .slide-fade-leave-active {
-  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+  transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
 }
 .slide-fade-enter, .slide-fade-leave-to
 /* .slide-fade-leave-active below version 2.1.8 */ {

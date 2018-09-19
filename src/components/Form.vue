@@ -3,8 +3,8 @@
     <h1>Add Usability Tasks Here</h1>
     <form>
       <div class="form-group siteURL">
-        <label class="text-light">Site URL</label>
-        <input type="text" class="form-control siteURL" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <label class="text-light">{{ siteURL }}</label>
+        <input type="text" class="form-control siteURL" id="siteURL" aria-describedby="emailHelp" @keyup="siteURLCheck">
       </div>
       <div class="form-group">
         <label class="text-light">Task #1</label>
@@ -32,7 +32,8 @@
 export default {
   data: function() {
     return {
-      taskCounter: 3
+      taskCounter: 3,
+      siteURL: 'Site URL'
     }
   },
   methods: {
@@ -58,17 +59,19 @@ export default {
       formInput.classList.add('form-control');
       formDiv.appendChild(formInput);
 
-
-
-
-
-
       addButton.appendChild(formDiv);
 
       e.preventDefault();
+    },
+    siteURLCheck() {
+      const siteURL = document.getElementById('siteURL');
+      if (siteURL.value.length > 5) {
+        siteURL.style.border = '3px solid green';
+      } else {
+        siteURL.style.border = '2px solid red';
+      }
     }
   }
-  
 }
 </script>
 
@@ -112,6 +115,10 @@ export default {
     border: 2px solid red;
     width: 50%;
     margin: 0 auto;
+
+    &:focus {
+      border: none;
+    }
     }
   }
 

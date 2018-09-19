@@ -1,6 +1,6 @@
 <template>
   <div id="form">
-    <h1>Add Usability Tasks Here</h1>
+    <h2>Let's get some information...</h2>
     <form>
       <div class="form-group siteURL">
         <label class="text-light">{{ siteURL }}</label>
@@ -15,11 +15,11 @@
       </div>
         <div class="form-group">
         <label class="text-light">Task #2</label>
-        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" @keyup="inputCheck">
+        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
       </div>
         <div class="form-group">
         <label class="text-light">Task #3</label>
-        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" @keyup="inputCheck">
+        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
 
       <div id="additional-items"></div>
     </div>
@@ -87,7 +87,7 @@ export default {
 </script>
 
 <style lang="scss">
-  h1 {
+  h2 {
     color: aqua;
   }
 
